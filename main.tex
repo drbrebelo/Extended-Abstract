@@ -18,6 +18,7 @@
 \usepackage[T1]{fontenc}
 \usepackage[english]{babel}
 \usepackage{graphicx}
+\usepackage{placeins}
 
 % The following packages can be found on http:\\www.ctan.org
 % \usepackage{graphics} % for pdf, bitmapped graphics files
@@ -134,50 +135,41 @@ Besides allowing direct communications between handhelds, the Direct Mode offers
     \item \textbf{Gateway} - It is possible to configure a mobile station to operate as a gateway. This way, this station will connect users who are out of range of the base station to the network. For example, in areas where there is no signal coverage due to terrain orography, placing one of these stations within the boundary of the base station's coverage area may be sufficient to connect users who are out of range of the base station to the network. Therefore, with this configuration, it is possible to connect the users to the control and management center.
 \end{itemize}
 \par\noindent Direct Mode operation is illustrated in the next figure
-
-\subsection{Abbreviations and Acronyms} Define abbreviations and 
-
-\subsection{Units}
-
-\begin{itemize}
-
-\item Use either SI (MKS) or CGS as primary units. (SI units are encouraged.) English units may be used as secondary units (in parentheses). An exception would be the use of English units as identifiers in trade, such as ``3.5-inch disk drive''.
-\item Avoid combining SI and CGS units, such as current in amperes and magnetic field in oersteds. This often leads to confusion because equations do not balance dimensionally. If you must use mixed units, clearly state the units for each quantity that you use in an equation.
-\item Do not mix complete spellings and abbreviations of units: ``Wb/m2'' or ``webers per square meter'', not ``webers/m2''.  Spell out units when they appear in text: ``\ldots a few henries'', not ``\ldots a few H''.
-\item Use a zero before decimal points: ``0.25'', not ``.25''. Use ``cm$^3$'', not ``cc''. (bullet list)
-
-\end{itemize}
-
-
-\subsection{Terrestrial Trunked Radio}
-
-The equations are an exception to the prescribed specifications of this template. You will need to determine whether or not your equation should be typed using either the Times New Roman or the Symbol font (please no other font). To create multileveled equations, it may be necessary to treat the equation as a graphic and insert it into the text after your paper is styled. Number equations consecutively. Equation numbers, within parentheses, are to position flush right, as in (1), using a right tab stop. To make your equations more compact, you may use the solidus ( / ), the exp function, or appropriate exponents. Italicize Roman symbols for quantities and variables, but not Greek symbols. Use a long dash rather than a hyphen for a minus sign. Punctuate equations with commas or periods when they are part of a sentence, as in
-\begin{equation}
-\alpha + \beta = \chi
-\end{equation}
-
-Note that the equation is centered using a center tab stop. Be sure that the symbols in your equation have been defined before or immediately following the equation. Use ``(1)'', not ``Eq. (1)'' or ``equation (1)'', except at the beginning of a sentence: ``Equation (1) is\ldots''
-
-\subsection{Some Common Mistakes}
-\begin{itemize}
-
-
-\item The word ``data'' is plural, not singular.
-\item The subscript for the permeability of vacuum ?0, and other common scientific constants, is zero with subscript formatting, not a lowercase letter ``o''.
-\item In American English, commas, semi-/colons, periods, question and exclamation marks are located within quotation marks only when a complete thought or name is cited, such as a title or full quotation. When quotation marks are used, instead of a bold or italic typeface, to highlight a word or phrase, punctuation should appear outside of the quotation marks. A parenthetical phrase or statement at the end of a sentence is punctuated outside of the closing parenthesis (like this). (A parenthetical sentence is punctuated within the parentheses.)
-\item A graph within a graph is an ``inset'', not an ``insert''. The word alternatively is preferred to the word ``alternately'' (unless you really mean something that alternates).
-\item Do not use the word ``essentially'' to mean ``approximately'' or ``effectively''.
-\item In your paper title, if the words ``that uses'' can accurately replace the word ``using'', capitalize the ``u''; if not, keep using lower-cased.
-\item Be aware of the different meanings of the homophones ``affect'' and ``effect'', ``complement'' and ``compliment'', ``discreet'' and ``discrete'', ``principal'' and ``principle''.
-\item Do not confuse ``imply'' and ``infer''.
-\item The prefix ``non'' is not a word; it should be joined to the word it modifies, usually without a hyphen.
-\item There is no period after the ``et'' in the Latin abbreviation ``et al.''.
-\item The abbreviation ``i.e.'' means ``that is'', and the abbreviation ``e.g.'' means ``for example''.
-
-\end{itemize}
-
-
-\section{USING THE TEMPLATE}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.45\textwidth]{DMO_PAPER.jpg}
+    \caption{Direct Mode REF[]}
+    \label{fig:DMO}
+\end{figure}
+\FloatBarrier
+\subsection{SIRESP and RITERAA} 
+Currently, in Portugal, the implemented PPDR network is SIRESP.  
+This network was developed based on TETRA technology and was expected to cover the entire continental territory and the archipelagos.\par\noindent
+It was planned that the implementation of this network would be performed in 7 distinct phases, thus guaranteeing the full functionality of this network throughout the Portuguese territory.
+Currently, the SIRESP Network consists of a mobile radio coverage that ensures connection to mobile terminals, and in a fixed network.
+The system has indeed reached the archipelago, but only for entities that are dependent on the state.\par\noindent
+Thus, it appears that this resolution does not fit the objectives of the SIRESP network, which would be to manage all the agencies involved in security and emergency in the region.\par\noindent
+The Azores Regional Civil Protection and Fire Service (SRPCBA) continued with its own communications system, but with a different operating frequency from that used in the SIRESP system. The developed system for the SRPCBA is RITERAA.
+\begin{figure}
+    \centering
+    \includegraphics[width=0.35\textwidth]{SirespCobertura.png}
+    \caption{S}
+    \label{fig:SIRESP}
+\end{figure}
+\FloatBarrier
+\noindent
+The  Regional Government of the Azores did not accept the full implementation of the system in the archipelago. This decision was based on various factors. Those factors were financial, technical, geographical, and meteorological.\par\noindent
+Another reason, provided by the responsible entities, was that the system designed to operate in the Azores paid no particular attention to the terrain orography neither to the natural geographical discontinuity of the archipelago. This factor could lead to a lack of coverage in some regions. Also, the implementation of  SIRESP would not be the most suitable for making connections between the islands of the archipelago.\par\noindent
+RITERAA was developed in 2014. Instead of TETRA, this network uses DMR technology. RITERAA allows reaching coverage of $ 95 \% $ of the Azorean territory, reaching $ 98 \% $ of the population, thus allowing greater efficiency and reliability in communications. São Miguel Island has eleven base station. The localization of these base station are shown in the next figure. 
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.45\textwidth]{riteraaestacoesbase.jpg}
+    \caption{Localization of the base stations in São Miguel Island}
+    \label{fig:RITERAA}
+\end{figure}
+\FloatBarrier
+%%%%%%%%%
+\section{Fundamental Concepts}
 
 Use this sample document as your LaTeX source file to create your document. Save this file as {\bf root.tex}. You have to make sure to use the cls file that came with this distribution. If you use a different style file, you cannot expect to get required margins. Note also that when you are creating your out PDF file, the source file is only part of the equation. \emph{Your \TeX\ $\rightarrow$ PDF filter determines the output file size. Even if you make all the specifications to output a letter file in the source - if you filter is set to produce A4, you will only get A4 output.}
 
