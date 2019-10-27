@@ -85,26 +85,49 @@ These networks have certain factors that must be considered. In commercial netwo
 This paper elaborates on a Public Protection and Disaster Relief Network for São Miguel Island. This network is developed through TETRA technology, being necessary to consider the particularities of these systems.\par\noindent
 In addition to mobile coverage planning, this paper also establishes the transport network. The transport network interconnects all the base stations of this network, enabling communications with any user, the transport network will use microwave links to interconnect the base stations. \par\noindent
 This network will have to overcome the difficulties provided by the island (large water surfaces on the island, extremely irregular orography).
-\begin{figure}[h]
+\begin{figure}[ht]
     \centering
     \includegraphics[width=0.4\textwidth]{Lorenzo.jpg}
     \caption{Hurricane Lorenzo}
     \label{fig:lorenzo}
 \end{figure}
-
+This paper aims to implement TETRA mobile coverage on São Miguel Island. It is intended that the region of interest has a coverage higher than 95\% of the region, serving at least 98\% of the population. It is desirable to have a similar amount of base stations of the current system. Software simulations must validate these results. The microwave links must have redundancies in order to have a functional and viable system even if there is a problem in a link.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{PROCEDURE FOR PAPER SUBMISSION}
+\section{State of The Art And Basic Concepts Of TETRA Systems}
 
-\subsection{Selecting a Template (Heading 2)}
+\subsection{State of the Art}
 
-First, confirm that you have the correct template for your paper size. This template has been tailored for output on the US-letter paper size. Please do not use it for A4 paper since the margin requirements for A4 papers may be different from Letter paper size.
+Public Protection and Disaster Relief Networks execute a vital role in the protection and operationality of all countries. These networks are intended to ensure communications between differents agencies, thereby ensuring interaction between all responders in emergency response. Thus, there is the possibility of producing the necessary communications between these entities at any time of the emergency\par\noindent
+Hence, with resources and access to this infrastructure, it is possible to plan, coordinate, and execute the emergency plan as needed.\par\noindent
+Currently, several technologies allow the implementation of this type of networks, such as:
+\begin{itemize}
+    \item \textbf{DMR} - Digital Mobile Radio;
+    \item \textbf{dPMR} - Digital Private Mobile Radio;
+    \item \textbf{LTE/PPDR} - Long Term Evolution / Public Protection and Disaster Relief;
+    \item \textbf{TETRA} - Terrestrial Trunked Radio.
+\end{itemize}
+\par\noindent
+This PPDR network is implemented with TETRA technology. Therefore, this paper describes and explains the basics of this technology. %%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Terrestrial Trunked Radio}
+\noindent TETRA technology was standardized by ETSI and is supplied by various companies, is designed for UHF (Ultra High Frequency) voice and data transmission. TETRA has, in recent years, been the leading technology for public and private mobile radio systems, especially for public safety networks. It has been designed to have a highly stable and operational system with services that are adjustable to the needs of users. The implementation of this network can be found in most European countries (Germany, Austria, Belgium, Croatia, Finland, Greece, the Netherlands, Hungary, Ireland, Luxembourg, Norway, Portugal, Romania, Sweden, and the United Kingdom, among others).
+\par\noindent
+TETRA technology is a digital transmission system that uses two access methods, FDMA and TDMA. The air interface of this system is divided into carriers with different frequencies (FDMA). Each of these carriers is divided into four time-slots (TDMA). Each time-slot is a communication channel, and this factor allows each carrier to have up to four separate communications occurring at the same time.\par\noindent
+Each carrier has a bandwidth of $25kHz$, linking this with the fact that there are four channels per carrier, it is possible in $200kHz$ to have thirty-two communication channels. If this technology were only built on FDMA, there would only be eight channels available in a bandwidth of  $200kHZ$. As a result of the unification of the two access methods used by TETRA, it can be said that spectrum use is very efficient and much more efficient than other technologies.
+\begin{figure}
+    \centering
+    \includegraphics[width=0.45\textwidth]{TETRA_spectrum.JPG}
+    \caption{Tetra spectrum usage [RETIRADO DE]}
+    \label{fig:TETRAspectrum}
+\end{figure}
+The European Radiocommunications Committee established  the following frequency bands that this system can be operated:
+\begin{itemize}
+    \item Ligação ascendente faixa de frequências de $[380-385]MHz$ e para a ligação descendente a faixa de frequências de $[390-395]MHz$, para entidades de emergência;
+    \item Ligação ascendente faixa de frequências de $[385-390]MHz$ e para a ligação descendente a faixa de frequências de $[395-400]MHz$, para entidades públicas;
+    \item Ligação ascendente faixa de frequências de $[410-420]MHz$ e para a ligação descendente a faixa de frequências de $[420-430]MHz$, para uso civil
+\end{itemize}
 
-\subsection{Maintaining the Integrity of the Specifications}
-
-The template is used to format your paper and style the text. All margins, column widths, line spaces, and text fonts are prescribed; please do not alter them. You may note peculiarities. For example, the head margin in this template measures proportionately more than is customary. This measurement and others are deliberate, using specifications that anticipate your paper as one part of the entire proceedings, and not as an independent document. Please do not revise any of the current designations
 
 \section{MATH}
-
 Before you begin to format your paper, first write and save the content as a separate text file. Keep your text and graphic files separate until after the text has been formatted and styled. Do not use hard tabs, and limit use of hard returns to only one return at the end of a paragraph. Do not add any kind of pagination anywhere in the paper. Do not number text heads-the template will do that for you.
 
 Finally, complete content and organizational editing before formatting. Please take note of the following items when proofreading spelling and grammar:
@@ -123,7 +146,7 @@ Finally, complete content and organizational editing before formatting. Please t
 \end{itemize}
 
 
-\subsection{Equations}
+\subsection{Terrestrial Trunked Radio}
 
 The equations are an exception to the prescribed specifications of this template. You will need to determine whether or not your equation should be typed using either the Times New Roman or the Symbol font (please no other font). To create multileveled equations, it may be necessary to treat the equation as a graphic and insert it into the text after your paper is styled. Number equations consecutively. Equation numbers, within parentheses, are to position flush right, as in (1), using a right tab stop. To make your equations more compact, you may use the solidus ( / ), the exp function, or appropriate exponents. Italicize Roman symbols for quantities and variables, but not Greek symbols. Use a long dash rather than a hyphen for a minus sign. Punctuate equations with commas or periods when they are part of a sentence, as in
 \begin{equation}
