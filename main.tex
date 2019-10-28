@@ -68,8 +68,8 @@ Design of a Public Protection and Disaster Relief Network for São Miguel Island
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{abstract}
-This Dissertation aims at a project of a TETRA emergency and public safety network for São Miguel Island. In the Azores, there are numerous situations of risk to people and goods every year. The damage caused by these events is partly aggravated by human occupation in areas of high sensitivity and fragility. These factors, as well as recent events in Pedrogão Grande, aroused interest in developing a project on this topic. The objective of this Dissertation is to reach mobile network coverage values greater than or equal to 95\% and reach at least 98\% of the population. For this, the use of TETRA technology is used.\par\noindent
-During this Dissertation are presented the two systems implemented in the Autonomous Region of the Azores. These systems are RITERAA and SIRESP.\par\noindent
+This paper aims at a project of a TETRA emergency and public safety network for São Miguel Island. In the Azores, there are numerous situations of risk to people and goods every year. The damage caused by these events is partly aggravated by human occupation in areas of high sensitivity and fragility. These factors, as well as recent events in Pedrogão Grande, aroused interest in developing a project on this topic. The objective of this paper is to reach mobile network coverage values greater than or equal to 95\% and reach at least 98\% of the population. For this, the use of TETRA technology is used.\par\noindent
+During this paper are presented the two systems implemented in the Autonomous Region of the Azores. These systems are RITERAA and SIRESP.\par\noindent
 During implementation of a mobile network, for coverage and interference reasons, it is necessary to estimate the signal transmitted by the base station. Signal estimation involves the calculation of an average value and the oscillations around this value. To estimate the signal, the Okumura-Hata model and the Walfisch-Ikegami model were used.\par\noindent
 The fundamental concepts of mobile networks were discussed, followed by the project implementation. Finally, simulations were performed from the values  obtained in the project sizing. It was concluded that it is possible to exceed the objectives initially set since the coverage exceeds 96\% of the study area and reaches at least 99\% of the population.
 \end{abstract}
@@ -170,46 +170,79 @@ RITERAA was developed in 2014. Instead of TETRA, this network uses DMR technolog
 \FloatBarrier
 %%%%%%%%%
 \section{Fundamental Concepts}
+In problems of mobile coverage, it is decided to place the base station in order to optimize coverage. In mobile communications, it is intended that the range of the base station does not exceed a particular limit. This area with defined limits is called the cell.\par\noindent 
+The design of the cell, in which the size is pre-established, takes into account the
+telecommunications traffic aspects, quality of service, and propagation aspects.\par\noindent
+The variability of the received signal depends on the type of cell in which the mobile terminal is located.\par\noindent
+In mobile coverage, the cell can be defined in three different types:
+\begin{itemize}
+    \item Macro cell;
+    \item Micro cell;
+    \item Pico cell;
+\end{itemize}
+The designation of the cell it's not correlated with the size of the cell. It's related to the Line-of-Sight situation.\par\noindent
+Macro-cells are defined as coverage areas where there is no line-of-sight between the base station and mobile terminals. The base station antennas are usually above the tops of buildings, while mobile terminals are generally in shadowed areas of obstacles.\par\noindent 
+The micro cell is a coverage region where the mobile terminal is usually in line-of-sight with the base station. The base station antenna is usually below the tops of buildings. For example, the cell is a street and the fixed terminal is placed on a light pole, with this configuration is intended to cover the length of the street.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.45\textwidth]{celulas.png}
+    \caption{Cells []}
+    \label{fig:celulas}
+\end{figure}
+\FloatBarrier
+Since this paper aims to design a PPDR network and this type of network is usually associated with outdoor propagation, the macro cell is the predominant type of cell. 
+%%%%%
+\subsection{Fading}
+In mobile communications, fading can be described as the received signal variation over a certain period. This fluctuation in the level of the received signals, and consequently, the disturbance of the quality of service, is caused by the variability (in time) of the electromagnetic wave propagation medium characteristics.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.45\textwidth]{fading.JPG}
+    \caption{Signal Variation}
+    \label{fig:fading}
+\end{figure}
+\par\noindent
+There are two types of fading, slow fading and fast fading. Fast variations in the received signal characterize fast fading. On the other hand, slow fading is characterized by a variation in the received signal with a very long duration (minutes or even hours).
+\par\noindent Fast fading is mainly caused by the multipath of the signal and can be interpreted as local turbulence of the atmosphere, resulting predominantly from two factors: frequency of operation and the location of the antennas. There is multipath when it is possible to establish more than one distinct path between the base station and the terminal. These distinct paths may give rise to interference at the terminal since they are two signals with similar amplitudes and relative phase dependent on the path.\par\noindent Fading is a random phenomenon. Thus, it results from random processes and can be approximated by statistics.\par\noindent
+Since this paper is focused on outdoor propagation, the most common situations will be non-line-of-sight. Therefore, to characterize the fading, it is used the Rayleigh Distribution.  This distribution is associated with a fast variation of the signal. 
 
-Use this sample document as your LaTeX source file to create your document. Save this file as {\bf root.tex}. You have to make sure to use the cls file that came with this distribution. If you use a different style file, you cannot expect to get required margins. Note also that when you are creating your out PDF file, the source file is only part of the equation. \emph{Your \TeX\ $\rightarrow$ PDF filter determines the output file size. Even if you make all the specifications to output a letter file in the source - if you filter is set to produce A4, you will only get A4 output.}
-
-It is impossible to account for all possible situation, one would encounter using \TeX. If you are using multiple \TeX\ files you must make sure that the ``MAIN`` source file is called root.tex - this is particularly important if your conference is using PaperPlaza's built in \TeX\ to PDF conversion tool.
-
-\subsection{Headings, etc}
-
-Text heads organize the topics on a relational, hierarchical basis. For example, the paper title is the primary text head because all subsequent material relates and elaborates on this one topic. If there are two or more sub-topics, the next level head (uppercase Roman numerals) should be used and, conversely, if there are not at least two sub-topics, then no subheads should be introduced. Styles named ``Heading 1'', ``Heading 2'', ``Heading 3'', and ``Heading 4'' are prescribed.
-
-\subsection{Figures and Tables}
-
-Positioning Figures and Tables: Place figures and tables at the top and bottom of columns. Avoid placing them in the middle of columns. Large figures and tables may span across both columns. Figure captions should be below the figures; table heads should appear above the tables. Insert figures and tables after they are cited in the text. Use the abbreviation ``Fig. 1'', even at the beginning of a sentence.
-
-\begin{table}[h]
-\caption{An Example of a Table}
-\label{table_example}
-\begin{center}
-\begin{tabular}{|c||c|}
-\hline
-One & Two\\
-\hline
-Three & Four\\
-\hline
-\end{tabular}
-\end{center}
-\end{table}
-
-
-   \begin{figure}[thpb]
-      \centering
-      \framebox{\parbox{3in}{We suggest that you use a text box to insert a graphic (which is ideally a 300 dpi TIFF or EPS file, with all fonts embedded) because, in an document, this method is somewhat more stable than directly inserting a picture.
-}}
-      %\includegraphics[scale=1.0]{figurefile}
-      \caption{Inductance of oscillation winding on amorphous
-       magnetic core versus DC bias magnetic field}
-      \label{figurelabel}
-   \end{figure}
-   
-
-Figure Labels: Use 8 point Times New Roman for Figure labels. Use words rather than symbols or abbreviations when writing Figure axis labels to avoid confusing the reader. As an example, write the quantity ``Magnetization'', or ``Magnetization, M'', not just ``M''. If including units in the label, present them within parentheses. Do not label axes only with units. In the example, write ``Magnetization (A/m)'' or ``Magnetization {A[m(1)]}'', not just ``A/m''. Do not label axes with a ratio of quantities and units. For example, write ``Temperature (K)'', not ``Temperature/K.''
+\subsection{Diversity}
+It is not always economical, or technically possible, to increase the transmitted power or antenna gain so that the received power is higher than the receiver's sensitivity. Thus, to mitigate the effects of fading, diversity is often used.
+This technique is mainly used to prevent the effects of fast fading. It consists of using the redundancies of the signals at the reception. The use of diversity is usually associated with signal combination.
+\par\noindent
+Diversity can be divided into several types, but there are two that are often used:
+\begin{itemize}
+    \item \textbf{Spatial Diversity} - The signals received by the base station antennas are the result of wave propagation through multipath. Multiple spaced antennas are used to receive the signal transmitted by handheld.Typically the antenna spacing is horizontal.
+    \item\textbf{Frequency Diversity} - Frequency diversity is based on the multiple transmission of signals at different frequencies. In this way, the antennas receive the same signal but with different operating frequencies. In this type of diversity, larger bandwidth is required.
+\end{itemize}
+\subsection{Combining}
+The use of diversity requires a combinator at the reception. When in a path the received signal is obtained through $ n $ uncorrelated signals, the diversity used is of the order $ n $. Given the diversity order, the matching process is to get a better signal than any of the existing $ n $ signals, or at least, equal to the best of these signals.\par\noindent
+The combining process used in this project was the selection. The combination by selection is based on the choice of the best-transmitted signal . That is, the signal that is selected for the combiner output is at all times the most intense received signal. Since the fading is charactherized by the Rayleigh Distribution, the combining values are also extracted from the Rayleigh Distribution for $n$ uncorrelated signals. 
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.285\textwidth]{combinacaoRayleigh.jpg}
+    \caption{Combining by selection}
+    \label{fig:combining}
+\end{figure} \FloatBarrier
+\subsection{Propagations Model}
+In mobile coverage implementation, due to coverage and interference reasons, it is necessary to estimate the signal transmitted by the base station. A good estimate of the signal received at the cell boundary is required.\par\noindent
+To estimate the signal one must use propagation models. Most of these models provide the mean or median value of the signal. 
+Before applying the propagation models, it is necessary to classify the area under study. Typically, study zones are divided into three different categories:
+\begin {itemize}
+    \item \textbf{Urban area} - zone of high construction density, with large building blocks and towers, usually with more than two floors per building;
+    \item Suburban area - residential area, lower and lower volume buildings with gardens and parks. It is a not very dense zone around the mobile terminal;
+    \item Rural area - open areas, little construction. There are usually no obstacles between 300-400m around the mobile terminal.
+\end {itemize} \par\noindent
+Before the propagation  models are introduced, it is necessary to present a set of characteristics of the outdoor environments in mobile radio.
+\begin {enumerate}
+    \item The mobile terminal antenna is typically at the height of $ 1.8 $ meters from the ground;
+    \item Even if the route analyzed is a LoS situation, there is a possibility that there are zones nearby where this situation does not occur;
+\end {enumerate}
+The models used in macro-cell scenarios can be summarized into two essential models:
+    \begin {itemize}
+        \item Okumura-Hata: Distances greater than $ 5km $ (Urban, Suburban, Rural);
+        \item Walfish-Ikegami: Distances under $ 5km $ (Urban and Suburban Environments);
+    \end {itemize}
+%%%%%%
 
 \section{CONCLUSIONS}
 
