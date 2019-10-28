@@ -20,6 +20,7 @@
 \usepackage{graphicx}
 \usepackage{placeins}
 \usepackage{amsmath}
+\usepackage[table,xcdraw]{xcolor}
 % The following packages can be found on http:\\www.ctan.org
 % \usepackage{graphics} % for pdf, bitmapped graphics files
 %\usepackage{epsfig} % for postscript graphics files
@@ -319,7 +320,7 @@ $L_{rt}\ \textrm{e}\  L_{rm}$ can be defined as:
 \end{split}
 \end{equation}\par\noindent
 The correction factors ($k_a,\ k_d, \ k_d$) can be consulted in \cite{c1}.\par\noindent
-The validity conditions of this model can be viewed in the next table:
+The validity conditions of this model can be viewed in the next table.
 \begin{table}[h]
 \centering
 \begin{tabular}{|c|c|c|ll}
@@ -335,13 +336,160 @@ $h_m [m]$   & 1               & 3              &  &  \\ \cline{1-3}
 \end{table}
 %%%%%
 \section{Coverage Design}
-
-
+\subsection{Antennas}\noindent
+To design the mobile coverage, one must take into account what antennas are going to be used. In this paper, the focus is aimed at sectorized antennas.
+\par\noindent
+Sectorized antennas have a smaller beamwidth. Hence they have a higher gain value. The horizontal radiation pattern has a half-power beamwidth of 120 degrees. Sectorization has some advantages, such as co-channel interference reduction, reduced frequency reuse distance, high antenna gain. \par\noindent
+Each sector can be viewed as a cell, allowing each antenna to be adjusted according to the sector's needs (\textit{downtilt}, emitted power, diversity, antenna height).\par\noindent
+The antenna used in this paper has a gain of 11.5 dBi.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.45\textwidth]{antenasectorizada.JPG}
+    \caption{Sectorized Antenna}
+    \label{fig:antenna3D}
+\end{figure}
+\FloatBarrier
 %%%%%%
-\section{CONCLUSIONS}
+\subsection{Sensivity and Considered Attenuation}\noindent
+One can define sensitivity as the minimum value of the signal that the receiver's antenna can detect the transmitted information. The restrictive factor of the maximum range of the connection between the base station mobile terminal is the uplink connection.  Therefore, the receiver sensitivity in uplink is the base station sensitivity value. In this case, the sensitivity value of the base station is  -113.5dBm. \par\noindent
+The considered handheld sensitivity value was -103dBm. This value corresponds to a mobile terminal in a dynamic state. \par\noindent
+Despite having the sensitivity values of the equipment, one must consider other types of attenuation. In PPDR networks, it must be considered the fire attenuation, user attenuation and the vegetation attenuation. The assumed values were:
+\begin{itemize}
+    \item \textbf{Fire Attenuation}- 15 dB;
+    \item \textbf{User Attenuation}- 5dB;
+    \item \textbf{Vegetation Attenuation}- Weissberger Model\cite{c1}.
+\end{itemize}
+\par\noindent
+Even after all this considerations, it is possible to appear in the project some areas with no coverage, because of this assumption, it was added a safety margin of 10 dB.
+\subsection{Cell Design} \noindent
+In total it was designed eleven base station. Each base section has two or three sectors. This process is very extensive and detailed, because of this, it is not possible to describe it in this paper. Therefore, only the final values will be presented. 
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.49\textwidth]{localizacaoBS.JPG}
+    \caption{Location of the Implemented Base Stations}
+    \label{fig:my_label}
+\end{figure}
+\par\noindent
+In total there are thirty sectors. The summarized information about these sector can be found in the next table.
+\begin{table}[h]
+\centering
+\begin{tabular}{|c|c|c|c|}
+\hline
+\rowcolor[HTML]{EFEFEF} 
+{\color[HTML]{000000} \textbf{Base Station}} & \multicolumn{3}{c|}{\cellcolor[HTML]{EFEFEF}{\color[HTML]{000000} \textbf{Transmitted Power (W)}}}     \\ \hline
+                                             & \cellcolor[HTML]{FD6864}Sector 1 & \cellcolor[HTML]{96FFFB}Sector 2 & \cellcolor[HTML]{FFFE65}Sector 3 \\ \hline
+\textbf{1st}                                 & 119.95                           & 65.17                            & 65.46                            \\ \hline
+\textbf{2nd}                                 & 119.4                            & 58.21                            & —                                \\ \hline
+\textbf{3rd}                                 & 63.97                            & 23.28                            & 19.41                            \\ \hline
+\textbf{4th}                                 & 10.31                            & 22.65                            & 37.93                            \\ \hline
+\textbf{5th}                                 & 114.03                           & 54.33                            & 208.45                           \\ \hline
+\textbf{6th}                                 & 25.53                            & 52.73                            & —                                \\ \hline
+\textbf{7th}                                 & 19.18                            & 26.49                            & —                                \\ \hline
+\textbf{8th}                                 & 116.15                           & 1.982                            & 104.23                           \\ \hline
+\textbf{9th}                                 & 68.55                            & 241.55                           & 83.56                            \\ \hline
+\textbf{10th}                                & 11.17                            & 7.23                             & 6.68                             \\ \hline
+\textbf{11th}                                & 115.35                           & 27.92                            & 156.32                           \\ \hline
+\end{tabular}
+\caption{Parameters of the Base stations}
+\label{tab:BS}
+\end{table}\par\noindent 
+There is a zone is this project that was not dimensioned to be covered.  This zone is called Lagoa do Fogo. The reason for this approach is simple. Lagoa do Fogo is one of the highest points of the island, very irregular terrain and with no human occupation. Therefore, this area was not accommodated in the project.
+\subsection{Transportation Network}
+\noindent
+A telecommunications network is an aggregate of nodes and links and is used to carry information between different devices. Usually, these equipment are separated by dozens of kilometres. This transport of information must be done efficiently. Network nodes, also known as network elements, correspond to electronic or optical devices (computers, switches, routers, multiplexers) that originate, guide, or terminate information.\par\noindent
+In the case of this network, it will be used microwave links. Microwave links have two significant advantages. The first advantage is that they are immune to fire attenuation, communications are only damaged if base stations are damaged by fire. The second advantage is that it is not necessary to use a physical medium (coaxial cable or optical fiber). Since base stations are in remote locations it would be expensive to interconnect them by a physical medium.\par\noindent
+The established network can be seen in the next figure.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.45\textwidth]{RedeEB.JPG}
+    \caption{Network Topology}
+    \label{fig:topologia}
+\end{figure}
+\FloatBarrier
 
-A conclusion section is not required. Although a conclusion may review the main points of the paper, do not replicate the abstract as the conclusion. A conclusion might elaborate on the importance of the work or suggest applications and extensions. 
+\noindent The physical topology is a ring topology. As three rings are interconnected, the correct designation is a triple ring network. This topology introduces redundancies in the network, in case of failure of one of the links, it is possible to continue to communicate with other base stations.
+\par\noindent
+The logical topology is of this network is a star topology. 
+\begin{figure}
+    \centering
+    \includegraphics[width=0.45\textwidth]{topologicarede.JPG}
+    \caption{Logical Topology}
+    \label{fig:logical}
+\end{figure}
+\section{Simulations}\noindent
+Simulations were done in order to validate the design of mobile coverage.\par
+\noindent Therefore, four different scenarios were simulated.
+\subsection{Dynamic Receiver with Fire Attenuation}
+\noindent This is the worst-case scenario. Also, it is the rarest case. This approach is done by simulating that there are fire near to the base stations. Despite having this attenuation it is expected a good coverage.
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.45\textwidth]{estacaobase1a4.JPG}
+    \caption{Base Station 1 to 4}
+    \label{fig:estacoesbase1a4}
+\end{figure}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.45\textwidth]{estacaobase5a8.JPG}
+    \caption{Base Station 5 to 8}
+    \label{fig:estacoesbase5a8}
+\end{figure}
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.45\textwidth]{estacaobase9a11.JPG}
+    \caption{Base Station 8 to 11}
+    \label{fig:estacoesbase9a11}
+\end{figure}
+\FloatBarrier 
+\noindent As one can see in the figures above, all the suburbans areas are covered. Therefore, the zones with higher population density are covered by this network. Figure \ref{fig:estacoesbase9a11} has the most number of areas without coverage. These are rural areas. There is no human occupation in those areas. It is possible to affirm that this network satisfies the main goals.
+\subsection{Static Receiver with Fire Attenuation}\noindent
+In this scenario, the handheld has a sensitivity 10dB lower than the previous case. This value has a huge impact on coverage levels.
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.45\textwidth]{esteEstatico.JPG}
+    \caption{Coverage for a static receiver - I}
+    \label{fig:estaticoESTE}
+\end{figure}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.45\textwidth]{OesteEstatico.JPG}
+    \caption{Coverage for a static receiver - II}
+    \label{fig:estaticoOeste}
+\end{figure} \FloatBarrier
+\subsection{Dynamic Receiver without Fire Attenuation}\noindent
+In this case, the handheld is in a dynamic state, but the signal is not attenuated by fire. This situation has a minimal received signal 15dB lower than the first scenario. 
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.45\textwidth]{RecetorDinamicoSemfogoI.JPG}
+    \caption{Coverage for a dynamic receiver without fire attenuation - I}
+    \label{fig:dinamicosemfogESTE}
+\end{figure}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.45\textwidth]{RecetorDinamicoSemfogoII.JPG}
+    \caption{Coverage for a dynamic receiver without fire attenuation - II}
+    \label{fig:dinamicosemfogoOeste}
+\end{figure} \FloatBarrier
+\noindent
+In this scenario, one can see that almost all the island is covered by this network.
+\subsection{Static Receiver without Fire Attenuation}
+\noindent This scenario is the best-case scenario. The worst-case scenario has an extra attenuation of 15dB when compared with this scenario.
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.45\textwidth]{RecetorEstaticoSemfogoI.JPG}
+    \caption{Coverage for a static receiver without fire attenuation - I}
+    \label{fig:estaticosemfogESTE}
+\end{figure}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.45\textwidth]{RecetorEstaticoSemfogoII.JPG}
+    \caption{Coverage for a static receiver without fire attenuation - II}
+    \label{fig:estaticosemfogoOeste}
+\end{figure} 
+\FloatBarrier \noindent 
+One can see that in this case the coverage reaches almost 100\% of the island area.
 
+\section{Conclusions} \noindent
+With these simulations, it is possible to extract valuable information.  In the first scenario, 96.54\% of the island and 99.08\% of the population are covered.  The second case establishes a covered area of 97.82\% and covers 99.15\% of the population.  The third scenario has a covered area of 98.97\% and a covered population of 99.42\%. Finally, the last case has the best coverage values, with 99.44\% of covered area and approximately 100\% of the population is covered. 
 \addtolength{\textheight}{-12cm}   % This command serves to balance the column lengths
                                   % on the last page of the document manually. It shortens
                                   % the textheight of the last page by a suitable amount.
@@ -358,19 +506,19 @@ A conclusion section is not required. Although a conclusion may review the main 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section*{APPENDIX}
+% \section*{APPENDIX}
 
-Appendixes should appear before the acknowledgment.
+% Appendixes should appear before the acknowledgment.
 
-\section*{ACKNOWLEDGMENT}
+% \section*{ACKNOWLEDGMENT}
 
-The preferred spelling of the word ``acknowledgment'' in America is without an ``e'' after the ``g''. Avoid the stilted expression, ``One of us (R. B. G.) thanks . . .''  Instead, try ``R. B. G. thanks''. Put sponsor acknowledgments in the unnumbered footnote on the first page.
+% The preferred spelling of the word ``acknowledgment'' in America is without an ``e'' after the ``g''. Avoid the stilted expression, ``One of us (R. B. G.) thanks . . .''  Instead, try ``R. B. G. thanks''. Put sponsor acknowledgments in the unnumbered footnote on the first page.
 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-References are important to the reader; therefore, each citation must be complete and correct. If at all possible, references should be commonly available publications.
+% References are important to the reader; therefore, each citation must be complete and correct. If at all possible, references should be commonly available publications.
 
 
 
